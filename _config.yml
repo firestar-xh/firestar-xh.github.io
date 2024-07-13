@@ -13,10 +13,10 @@ future: true
 
 # SNS settings
 RSS: false
-weibo_username: firestar
-zhihu_username: firestar
-github_username: firestar
-twitter_username: firestar
+#weibo_username: firestar
+#zhihu_username: firestar
+#github_username: firestar
+#twitter_username: firestar
 #facebook_username:  firestar
 #linkedin_username:  firstname-lastname-idxxxx
 
