@@ -3,7 +3,7 @@ layout:     post
 title:      "Hello Makrdown"
 subtitle:   " \"Hello World, Hello Blog\""
 date:       2024-7-14 12:00:00
-author:     "Hx"
+author:     "Xh"
 header-img: "img/markdown_bg.jpg"
 catalog: true
 tags:
