@@ -261,4 +261,4 @@ $$\frac{d}{dx}\left( \int_{-\infty}^{\infty} e^{-x^2} \,dx \right) = \frac{1}{\s
 ---
 ### 其他
 
-Markdown 还支持一些其他的语法，比如脚注、视频、音频等。 这些语法的详细信息请参考 [Markdown 语法说明](https://www.markdownguide.org/basic-syntax/)。
+Markdown 还支持一些其他的语法，比如脚注、视频、音频等。 这些语法的详细信息请参考 [*Markdown 语法说明*](https://www.markdownguide.org/basic-syntax/)。
