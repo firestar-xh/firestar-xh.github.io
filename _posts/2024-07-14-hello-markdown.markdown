@@ -20,7 +20,7 @@ tags:
 
 ### 标题
 
-**Markdown** 支持两种标题的语法，Setext 和atx 形式。
+Markdown 支持两种标题的语法，Setext 和atx 形式。
 
 Setext 形式是用底线的形式，利用两个换行符来定义标题，底线的长度对应标题的级别。
 
