@@ -8,6 +8,7 @@ header-img: "img/markdown_bg.jpg"
 catalog: true
 tags:
     - Meta
+    - Markdown
 ---
 
 > “Yeah It's on. ”
