@@ -15,45 +15,45 @@ tags:
 ## 正文
 >首先，我们需要将自己的网站提交到百度搜索引擎中，首先我们需要到百度搜索资源平台，然后点击用户中心，然后点击站点管理。
 
-![站点管理](../img/baidu_search/site_administration.png)
+![站点管理](../img/baidu_search/site_administration.jpg)
 
 >进入这个页面之后，我们直接点击添加 添加网站 按钮。
 
-![添加网站](../img/baidu_search/Add_site.png)
+![添加网站](../img/baidu_search/Add_site.jpg)
 
 ### 第一步
 >首先根据提示，输入自己的网站地址。
 
-![输入地址](../img/baidu_search/enter_address.png)
+![输入地址](../img/baidu_search/enter_address.jpg)
 
 ### 第二步 
 >然后我们需要输入站点属性。
 
-![站点属性](../img/baidu_search/Site_attribute.png)
+![站点属性](../img/baidu_search/Site_attribute.jpg)
 
 ### 第三步
 >然后我们需要验证网站
 
-![验证网站](../img/baidu_search/Verify_website.png)
+![验证网站](../img/baidu_search/Verify_website.jpg)
 
 ### 第四步
 >点击下载验证文件，下载完成后，将文件上传到自己的网站根目录。
 
-![验证网站1](../img/baidu_search/Verify_website1.png)
+![验证网站1](../img/baidu_search/Verify_website1.jpg)
 
 >将下载的文件上传到网站根目录，然后将文件名改为 baidu_verify_xxx.html。
 
-![下载验证文件](../img/baidu_search/Download_verification_file..png)
+![下载验证文件](../img/baidu_search/Download_verification_file..jpg)
 
 >然后确认验证文件可以正常访问，出现和baidu_verify_xxx.html一样的页面，则说明验证成功。
 
-![验证文件](../img/baidu_search/Validation_file.png)
+![验证文件](../img/baidu_search/Validation_file.jpg)
 
 ### 第五步
 >点击完成验证即可。
 
-![完成验证](../img/baidu_search/Complete_verification.png)
+![完成验证](../img/baidu_search/Complete_verification.jpg)
 
 >这里一直验证失败，无法连接到服务器，去掉www后，验证成功。
 
-![](../img/baidu_search/finish.png)
+![](../img/baidu_search/finish.jpg)
