@@ -53,4 +53,4 @@ tags:
 
 >这里一直验证失败，无法连接到服务器，去掉www后，验证成功。
 
-![](../img/baidu_search/finish.jpg)
+![img](../img/baidu_search/finish.jpg)
