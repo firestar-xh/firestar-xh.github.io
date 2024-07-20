@@ -54,3 +54,7 @@ tags:
 >点击完成验证即可。
 
 ![完成验证](../img/baidu_search/完成验证.png)
+
+>这里一直验证失败，无法连接到服务器，去掉www后，验证成功。
+
+![](../img/baidu_search/完成.png)
