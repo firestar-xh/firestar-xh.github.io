@@ -42,4 +42,15 @@ tags:
 
 ![验证网站1](../img/baidu_search/验证网站1.png)
 
+>将下载的文件上传到网站根目录，然后将文件名改为 baidu_verify_xxx.html。
+
 ![下载验证文件](../img/baidu_search/下载验证文件.png)
+
+>然后确认验证文件可以正常访问，出现和baidu_verify_xxx.html一样的页面，则说明验证成功。
+
+![验证文件](../img/baidu_search/验证文件.png)
+
+### 第五步
+>点击完成验证即可。
+
+![完成验证](../img/baidu_search/完成验证.png)
