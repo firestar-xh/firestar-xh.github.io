@@ -4,7 +4,7 @@ title:      "百度搜索收录自建网站"
 subtitle:   " \"百度检索, 自建网站收录 Blog\""
 date:       2024-7-21 14:00:00
 author:     "Xh"
-header-img: "img/baidu_bg.jpg"
+header-img: "img/baidu_search/baidu_bg.jpg"
 catalog: true
 tags:
     - Meta
