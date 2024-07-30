@@ -14,10 +14,10 @@ tags:
 
 # 工程创建
 
-## 一、打开开发资料包CW32_BLDC_EVA无刷电机开发评估套件资料包V6
+## 一、打开开发资料包
 
+> CW32_BLDC_EVA无刷电机开发评估套件资料包V6
 > 新建一个模板工程目录，命名为`Project`，并打开。
-
 ## 二、 创建工程文件
 
 1. 创建文件夹 User、Hardware
@@ -53,6 +53,10 @@ int main()
 ```
 12.  编译运行
 
+## 四、烧录调试
+
+1. 将资料包中 `CW32库文件\IdeSupport\MDK\flashloader\FlashCW32F030.FLM` 文件复制到 `Keil_v5\ARM\Flash\`文件夹下。
+2. Keil界面->"Options for Target"->"Debug"->"Setting"->"Flash Download"->"Add"->在弹出的对话框中选择"CW32F030"->点击"Add","确定"
 
 # 报错
 > Target 'Target 1' uses ARM-Compiler 'Default Compiler Version 5' which is not available.
