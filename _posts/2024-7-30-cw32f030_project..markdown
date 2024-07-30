@@ -1,0 +1,62 @@
+---
+layout:     post
+title:      "CW32F030 Project"
+subtitle:   " \"Hello World, Hello Blog\""
+date:       2024-7-30 12:00:00
+author:     "Xh"
+header-img: "img/markdown_bg.jpg"
+catalog: true
+tags:
+    - note
+    - 单片机
+    - CW32
+---
+
+# 工程创建
+
+## 一、打开开发资料包
+
+> 新建一个模板工程目录，命名为`Project`，并打开。
+
+## 二、 创建工程文件
+
+1. 创建文件夹 User、Hardware
+2. 将开发资料包中的`新建工程所要用到的库文件`目录下的 `core_cm0plus.h` `interrupts_cw32f030.c` `interrupts_cw32f030.h` `startup_cw32f030.s`文件夹拷贝到工程目录的`User`文件夹下
+3. 将`Libraries `文件夹拷贝到工程目录下
+
+## 三、 新建工程
+
+1. 打开 Keil5 软件，选择` Project`
+2. 输入工程名称，选择`ARM->ARM Cortex M0 plus->ARMCM0P`
+3. CMSIS 选择`CORE`
+4. 点击ok，完成工程创建
+5. 点击管理项目选项在Group1中添加`User`文件夹、`Hardware`文件夹、`Libraries`文件夹
+6. 点击User文件夹，添加`User`文件夹下的所有文件文件
+7. 点击Libraries文件夹，添加`Libraries/src`文件夹下的所有`.c`文件文件
+8. 点击配置目标选项，选择`Target`选项卡 IROM1 设置为 0x10000 
+9. C/C++选项卡设置编译器路径，添加`include path`路径
+10. 在User文件夹下新建`main.c` `main.h` 文件
+11. main.c中添加
+
+```c
+#include "main.h"                 // Device header
+int main() 
+{
+	while(1)
+	{
+		
+	}
+}
+```
+12.  编译运行
+
+
+# 报错
+> Target 'Target 1' uses ARM-Compiler 'Default Compiler Version 5' which is not available.
+
+## 解决方法：
+> 1. 安装ARMCompiler506_b960.msi，安装目录选择在`Keil_v5\ARM`下。
+
+> 2. 打开Keil选择 刚才ARMCompiler506_b960.msi安装的目录
+
+![img](/img/cw32project/cw32_install_ARMCompiler506_b960.jpg)
