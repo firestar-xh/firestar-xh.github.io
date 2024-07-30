@@ -4,7 +4,7 @@ title:      "CW32F030 工程创建"
 subtitle:   " \"CW32F030, CW32 Blog\""
 date:       2024-7-30 12:00:00
 author:     "Xh"
-header-img: "img/CW32_BLDC_EVA.jpg"
+header-img: "img/cw32project/CW32_BLDC_EVA.jpg"
 catalog: true
 tags:
     - note
