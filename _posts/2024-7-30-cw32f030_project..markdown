@@ -4,7 +4,7 @@ title:      "CW32F030 Project"
 subtitle:   " \"Hello World, Hello Blog\""
 date:       2024-7-30 12:00:00
 author:     "Xh"
-header-img: "img/markdown_bg.jpg"
+header-img: "img/CW32_BLDC_EVA.jpg"
 catalog: true
 tags:
     - note
