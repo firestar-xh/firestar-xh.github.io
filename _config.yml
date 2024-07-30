@@ -73,7 +73,7 @@ ga_track_id: "" # Format: UA-xxxxxx-xx
 ga_domain: "" # default is empty, you can customize it.
 
 # Sidebar settings
-sidebar: true # whether or not using Sidebar.
+sidebar: false # whether or not using Sidebar.
 sidebar-about-description: "这里是 @FireStar 的个人博客，与你一起发现更大的世界"
 #sidebar-avatar: https://github.com/images.png # use absolute URL, seeing it's used in both `/` and `/about/`
 
