@@ -17,14 +17,16 @@ tags:
 ## 一、打开开发资料包
 
 > CW32_BLDC_EVA无刷电机开发评估套件资料包V6
+
 > 新建一个模板工程目录，命名为`Project`，并打开。
-## 二、 创建工程文件
+
+## 二、创建工程文件
 
 1. 创建文件夹 User、Hardware
 2. 将开发资料包中的`新建工程所要用到的库文件`目录下的 `core_cm0plus.h` `interrupts_cw32f030.c` `interrupts_cw32f030.h` `startup_cw32f030.s`文件夹拷贝到工程目录的`User`文件夹下
 3. 将`Libraries `文件夹拷贝到工程目录下
 
-## 三、 新建工程
+## 三、新建工程
 
 1. 打开 Keil5 软件，选择` Project`。
 2. 输入工程名称，选择`ARM->ARM Cortex M0 plus->ARMCM0P`。
@@ -59,9 +61,11 @@ int main()
 2. Keil界面->"Options for Target"->"Debug"->"Setting"->"Flash Download"->"Add"->在弹出的对话框中选择"CW32F030"->点击"Add","确定"
 
 # 报错
+
 > Target 'Target 1' uses ARM-Compiler 'Default Compiler Version 5' which is not available.
 
 ## 解决方法：
+
 > 1. 安装ARMCompiler506_b960.msi，安装目录选择在`Keil_v5\ARM`下。
 
 > 2. 打开Keil选择 刚才ARMCompiler506_b960.msi安装的目录
