@@ -1,0 +1,14 @@
+---
+layout:     post
+title:      "Clarke变换"
+subtitle:   "Clarke变换, Clarke Blog"
+date:       2024-8-11 12:00:00
+author:     "Xh"
+header-img: "img/clarke_bg.png"
+catalog: true
+tags:
+    - note
+    - Clarke变换
+---
+
+# Clarke变换
