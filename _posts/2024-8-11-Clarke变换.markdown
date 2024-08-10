@@ -18,101 +18,80 @@ tags:
 
 ![img](/img/clarke_1.png)
 
-## Clarke变换过程
+# Clarke 变换的公式推导
+
 ![img](/img/clarke_2.png)
 
-# 克拉克变换（Clarke Transform）推导过程
+设 \(V_a\), \(V_b\), \(V_c\) 是三相电压，三相系统中的相位角分别为：
 
+- \(V_a\) 的相位角为 \(0^\circ\)
+- \(V_b\) 的相位角为 \(30^\circ\)
+- \(V_c\) 的相位角为 \(60^\circ\)
 
-## 1. 三相系统的定义
+我们希望将这三相系统转换到 α-β-0 坐标系。
 
-假设三相系统的电压或电流分别为 \( V_a \), \( V_b \), 和 \( V_c \)。三相系统满足以下关系：
+## 1. 定义 α-β 坐标系
 
-\[
-V_a + V_b + V_c = 0
-\]
-
-这种关系称为平衡三相系统。
-
-## 2. 将三相电压投影到两相静止坐标系
-
-为了将三相电压变换到两相静止坐标系，我们使用正交投影方法，将 \( V_a \), \( V_b \), \( V_c \) 投影到 α轴和 β轴上。
-
-### α轴
-
-α轴是 a相轴，即 α轴与 a相重合。因此，a相在 α轴上的投影为：
+在 α-β 坐标系中，电压向量可以表示为：
 
 \[
-V_\alpha = V_a
+\mathbf{V}_\alpha = V_a - V_b \cdot \sin(30^\circ) - V_c \cdot \cos(60^\circ)
 \]
-
-### β轴
-
-β轴与 a相轴相隔120°。因此，a相在 β轴上的投影为0，而b相和c相在β轴上的投影分别为负和正。利用几何关系可得：
 
 \[
-V_\beta = \frac{2}{\sqrt{3}} V_b - \frac{2}{\sqrt{3}} V_c
+\mathbf{V}_\beta = V_b \cdot \cos(30^\circ) - V_c \cdot \sin(30^\circ)
 \]
 
-通过简化，可以得到：
+将这些值代入 α 和 β 分量的表达式中，我们得到：
+
+### 2. 计算 α-β 坐标中的电压
+
+**α 分量**：
 
 \[
-V_\beta = \frac{1}{\sqrt{3}} (V_b - V_c)
+V_\alpha = V_a + V_b \cdot \left(-\frac{1}{2}\right) + V_c \cdot \left(-\frac{1}{2}\right)
 \]
-
-## 3. 克拉克变换矩阵的形式
-
-将上面的关系表示为矩阵形式：
 
 \[
-\begin{pmatrix}
-V_\alpha \\
-V_\beta \\
-\end{pmatrix}
-=
-\begin{pmatrix}
-1 & -\frac{1}{2} & -\frac{1}{2} \\
-0 & \frac{\sqrt{3}}{2} & -\frac{\sqrt{3}}{2} \\
-\end{pmatrix}
-\begin{pmatrix}
-V_a \\
-V_b \\
-V_c \\
-\end{pmatrix}
+V_\alpha = V_a - \frac{1}{2} \cdot (V_b + V_c)
 \]
 
-这里的矩阵即为克拉克变换矩阵。
-
-## 4. 逆克拉克变换
-
-逆克拉克变换用于将 αβ 坐标系下的量变换回原始三相系统。逆变换矩阵为：
+**β 分量**：
 
 \[
-\begin{pmatrix}
-V_a \\
-V_b \\
-V_c \\
-\end{pmatrix}
-=
-\begin{pmatrix}
-1 & 0 \\
--\frac{1}{2} & \frac{\sqrt{3}}{2} \\
--\frac{1}{2} & -\frac{\sqrt{3}}{2} \\
-\end{pmatrix}
-\begin{pmatrix}
-V_\alpha \\
-V_\beta \\
-\end{pmatrix}
+V_\beta = V_b \cdot \frac{\sqrt{3}}{2} + V_c \cdot \left(-\frac{\sqrt{3}}{2}\right)
 \]
-
-## 5. 进一步的简化
-
-在某些情况下，为了简化计算，克拉克变换的系数可以进行归一化处理。常见的简化形式为：
 
 \[
-V_\beta = V_b - V_c
+V_\beta = \frac{\sqrt{3}}{2} \cdot (V_b - V_c)
 \]
 
-这是一种归一化形式，可以在不同应用中根据需求进行调整。
+## 3. 引入标量因子
 
-克拉克变换的重要性在于它能够将三相系统的计算简化为两相系统，从而更方便地进行控制和分析。
+为了保证变换的功率不变，通常在变换矩阵中引入一个标量因子 
+
+\[
+\begin{pmatrix} V_\alpha \\ V_\beta \end{pmatrix} = \begin{pmatrix} 1 & -\frac{1}{2} & -\frac{1}{2} \\ 0 & \frac{\sqrt{3}}{2} & -\frac{\sqrt{3}}{2} \end{pmatrix} \cdot \begin{pmatrix} V_a \\ V_b \\ V_c \end{pmatrix}
+\]
+
+ > 等功率变换，所以标量因子为 \(\sqrt{\frac{2}{3}}\)
+\[
+\begin{pmatrix} V_\alpha \\ V_\beta \end{pmatrix} = \sqrt{\frac{2}{3}} \cdot \begin{pmatrix} 1 & -\frac{1}{2} & -\frac{1}{2} \\ 0 & \frac{\sqrt{3}}{2} & -\frac{\sqrt{3}}{2} \end{pmatrix} \cdot \begin{pmatrix} V_a \\ V_b \\ V_c \end{pmatrix}
+\]
+
+> 等幅值变换，所以标量因子为 \(\frac{2}{3}\)
+\[
+\begin{pmatrix} V_\alpha \\ V_\beta \end{pmatrix} = \frac{2}{3} \cdot \begin{pmatrix} 1 & -\frac{1}{2} & -\frac{1}{2} \\ 0 & \frac{\sqrt{3}}{2} & -\frac{\sqrt{3}}{2} \end{pmatrix} \cdot \begin{pmatrix} V_a \\ V_b \\ V_c \end{pmatrix}
+\]
+
+## 4. 零序分量
+
+零序分量 \(V_0\) 定义为三相电压之和的平均值：
+
+\[
+V_0 = \frac{1}{\sqrt{3}} \cdot (V_a + V_b + V_c)
+\]
+
+## 总结
+
+通过 Clarke 变换，三相电压 \(V_a\), \(V_b\), \(V_c\) 被转换到 α-β-0 坐标系中，这样的表达形式可以直接应用于各种电力电子系统中。
