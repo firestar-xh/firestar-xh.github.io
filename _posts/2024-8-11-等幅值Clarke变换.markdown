@@ -1,0 +1,43 @@
+---
+layout:     post
+title:      "等幅值Clarke变换"
+subtitle:   "Clarke变换, Clarke Blog"
+date:       2024-8-11 12:00:00
+author:     "Xh"
+header-img: "img/clarke_bg.png"
+catalog: true
+tags:
+    - note
+    - Clarke变换
+---
+
+# 等幅值Clarke变换
+
+> 等幅值 Clarke 变换（Equal Magnitude Clarke Transform）是一种特殊形式的 Clarke 变换，旨在保持原始三相系统和变换后的双相（α-β）系统的幅值一致。这种变换的目标是使得在 α-β 坐标系中得到的电压或电流分量的幅值与原始三相系统中的幅值相等，从而更直观地反映系统的物理量。
+
+![img](/img/Clarke_3.png)
+
+基尔霍夫电流定律（Kirchhoff's Current Law, KCL）表示，对于一个电路中的任何节点，进入节点的电流之和等于离开节点的电流之和。这个定律反映了电荷守恒。
+
+
+1. **三相系统中的电流分布**  
+   在一个平衡的三相系统中，假设三个相电流为 \( I_a \)、\( I_b \) 和 \( I_c \)。根据基尔霍夫电流定律，对于三相系统的中性点，进入中性点的电流和离开中性点的电流之和为零：
+   \[
+   I_a + I_b + I_c = 0
+   \]
+
+2. **等幅值 Clarke 变换的矩阵形式**  
+通过 Clarke 变换，将三相电流 \( I_a \)、\( I_b \) 和 \( I_c \) 变换为 α-β 坐标系中的电流 \( I_\alpha \) 和 \( I_\beta \)：
+通过 Clarke 变换，将三相电流 \( I_a \)、\( I_b \) 和 \( I_c \) 变换为 α-β 坐标系中的电流 \( I_\alpha \) 和 \( I_\beta \)：
+
+\[\begin{bmatrix}I_\alpha \\I_\beta\end{bmatrix}=
+\begin{bmatrix}1 & -\frac{1}{2} & -\frac{1}{2} \\
+0 & \frac{\sqrt{3}}{2} & -\frac{\sqrt{3}}{2}\end{bmatrix}
+\begin{bmatrix}I_a \\I_b \\I_c\end{bmatrix}\]
+
+1. **KCL 在 Clarke 变换中的应用**  
+   在变换过程中，基尔霍夫电流定律仍然适用。变换后的 α-β 坐标系中的电流 \( I_\alpha \) 和 \( I_\beta \) 仍然满足基尔霍夫电流定律。由于 α 和 β 轴是相互正交的，任何进入 α-β 系统节点的电流的合成依旧保持平衡。
+
+2. **功率守恒**  
+   通过等幅值 Clarke 变换，三相系统中的瞬时功率在 α-β 坐标系中得到保留。这可以理解为基尔霍夫电流定律在另一个坐标系下的体现，即变换前后电流的相互关系依旧遵循电荷守恒原则。
+

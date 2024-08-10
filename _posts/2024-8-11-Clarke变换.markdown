@@ -71,22 +71,24 @@ V_\beta = \frac{\sqrt{3}}{2} \cdot (V_b - V_c)
 为了保证变换的功率不变，通常在变换矩阵中引入一个标量因子 
 
 \[
-\begin{pmatrix} V_\alpha \\ V_\beta \end{pmatrix} = \begin{pmatrix} 1 & -\frac{1}{2} & -\frac{1}{2} \\ 0 & \frac{\sqrt{3}}{2} & -\frac{\sqrt{3}}{2} \end{pmatrix} \cdot \begin{pmatrix} V_a \\ V_b \\ V_c \end{pmatrix}
+\begin{bmatrix} V_\alpha \\ V_\beta \end{bmatrix} = \begin{bmatrix} 1 & -\frac{1}{2} & -\frac{1}{2} \\ 0 & \frac{\sqrt{3}}{2} & -\frac{\sqrt{3}}{2} \end{bmatrix} \cdot \begin{bmatrix} V_a \\ V_b \\ V_c \end{bmatrix}
 \]
 
  > 等功率变换，所以标量因子为 \(\sqrt{\frac{2}{3}}\)
+
 \[
-\begin{pmatrix} V_\alpha \\ V_\beta \end{pmatrix} = \sqrt{\frac{2}{3}} \cdot \begin{pmatrix} 1 & -\frac{1}{2} & -\frac{1}{2} \\ 0 & \frac{\sqrt{3}}{2} & -\frac{\sqrt{3}}{2} \end{pmatrix} \cdot \begin{pmatrix} V_a \\ V_b \\ V_c \end{pmatrix}
+\begin{bmatrix} V_\alpha \\ V_\beta \end{bmatrix} = \sqrt{\frac{2}{3}} \cdot \begin{bmatrix} 1 & -\frac{1}{2} & -\frac{1}{2} \\ 0 & \frac{\sqrt{3}}{2} & -\frac{\sqrt{3}}{2} \end{bmatrix} \cdot \begin{bmatrix} V_a \\ V_b \\ V_c \end{bmatrix}
 \]
 
 > 等幅值变换，所以标量因子为 \(\frac{2}{3}\)
+> 
 \[
-\begin{pmatrix} V_\alpha \\ V_\beta \end{pmatrix} = \frac{2}{3} \cdot \begin{pmatrix} 1 & -\frac{1}{2} & -\frac{1}{2} \\ 0 & \frac{\sqrt{3}}{2} & -\frac{\sqrt{3}}{2} \end{pmatrix} \cdot \begin{pmatrix} V_a \\ V_b \\ V_c \end{pmatrix}
+\begin{bmatrix} V_\alpha \\ V_\beta \end{bmatrix} = \frac{2}{3} \cdot \begin{bmatrix} 1 & -\frac{1}{2} & -\frac{1}{2} \\ 0 & \frac{\sqrt{3}}{2} & -\frac{\sqrt{3}}{2} \end{bmatrix} \cdot \begin{bmatrix} V_a \\ V_b \\ V_c \end{bmatrix}
 \]
 
 ## 4. 零序分量
 
-零序分量 \(V_0\) 定义为三相电压之和的平均值：
+> 零序分量 \(V_0\) 定义为三相电压之和的平均值：
 
 \[
 V_0 = \frac{1}{\sqrt{3}} \cdot (V_a + V_b + V_c)
