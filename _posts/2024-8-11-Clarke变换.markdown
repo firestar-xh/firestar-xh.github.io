@@ -124,4 +124,50 @@ $$
 
 4. **功率守恒**  
    通过等幅值 Clarke 变换，三相系统中的瞬时功率在 $\alpha$-$\beta$ 坐标系中得到保留。这可以理解为基尔霍夫电流定律在另一个坐标系下的体现，即变换前后电流的相互关系依旧遵循电荷守恒原则。
+5. **等幅值 Clarke 变换的化简**
+> 由等幅值 $$I_\alpha = I_a$$
+> 
+> $$
+> I_a + I_b + I_c = 0
+> $$
+> 
+> $$
+> I_c = -(I_a+I_b)
+> $$ 得
+
+$$
+   I_\beta = {\frac{2}{3}} \cdot \left( {\frac{\sqrt 3}{2}} \cdot I_b - \frac{\sqrt 3}{2} \cdot I_c \right)
+$$
+
+$$
+   = \frac{\sqrt 3}{3} \cdot \left( I_b - I_c \right)
+$$
+
+$$
+   = \frac{1}{\sqrt 3} \cdot \left( I_b - I_c \right)
+$$
+
+> 推出
+
+$$
+I_\beta = \frac{1}{\sqrt 3} \cdot \left( I_b - I_c \right)
+$$
+
+$$
+   =\frac{1}{\sqrt{3}} \cdot \left( I_b +I_a + I_b \right)
+$$
+
+$$
+   =\frac{1}{\sqrt{3}} \cdot \left( I_a + 2I_b \right)
+$$
+
+>最终得到
+
+$$
+   I_\alpha = I_a
+$$
+
+$$   
+   I_\beta = \frac{1}{\sqrt{3}} \cdot \left( I_a + 2I_b\right)
+$$
 
