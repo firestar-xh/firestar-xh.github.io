@@ -4,7 +4,7 @@ title:      "Park变换"
 subtitle:   "Park变换, Park Blog"
 date:       2024-8-11 12:00:00
 author:     "Xh"
-header-img: "img/clarke_bg.png"
+header-img: "img/park/paark_bg.jpg"
 catalog: true
 tags:
     - note
