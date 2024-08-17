@@ -23,7 +23,7 @@ tags:
 ## 1. 反Park变换
 
 $$
-u_\alpha = u_d \cdot cosc - u_q \cdot sinθ
+u_\alpha = u_d \cdot cosθ - u_q \cdot sinθ
 $$
 
 $$
@@ -94,7 +94,7 @@ $$
   $$
 
 - **扇区 5:**
-- 
+  
   $$
   t_1 = u_3
   $$
@@ -104,7 +104,7 @@ $$
   $$
 
 - **扇区 6:**
-- 
+ 
   $$
   t_1 = u_2
   $$
