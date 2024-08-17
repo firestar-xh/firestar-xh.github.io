@@ -20,8 +20,7 @@ tags:
 
 # SVPWM 实现方法
 
-## 1. Clarke 变换 (abc to αβ)
-将三相静止坐标系中的三相电压 $u_a$, $u_b$, $u_c$ 转换到 α-β 静止坐标系：
+## 1. 反Park变换
 
 $$
 u_\alpha = u_a
