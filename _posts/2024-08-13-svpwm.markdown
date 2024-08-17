@@ -23,11 +23,11 @@ tags:
 ## 1. 反Park变换
 
 $$
-u_\alpha = u_a
+u_\alpha = u_d \cdot cosc - u_q \cdot sinθ
 $$
 
 $$
-u_\beta = \frac{u_a + 2u_b}{\sqrt{3}}
+u_\beta = u_q \cdot cosθ + u_d \cdot sinθ
 $$
 
 ## 2. 计算三个基矢量 $u_1$, $u_2$, $u_3$
