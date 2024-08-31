@@ -1,1 +1,12 @@
-
+---
+layout:     post
+title:      "Allwinner H616 Build"
+subtitle:   "Allwinner H616, H616 Blog"
+date:       2024-8-31 12:00:00
+author:     "Xh"
+header-img: "img/default_bg.jpg"
+catalog: true
+tags:
+    - note
+    - h616
+---
