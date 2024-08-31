@@ -13,6 +13,7 @@ tags:
 # ubuntu20.04 构建环境安装
 
 ```
+sudo apt install -y make vim
 sudo apt install -y ccache debian-archive-keyring debootstrap device-tree-compiler dwarves
 sudo apt install -y gcc-arm-linux-gnueabihf jq libbison-dev libc6-dev-armhf-cross
 sudo apt install -y libelf-dev libfl-dev liblz4-tool libpython2.7-dev libusb-1.0-0-dev
@@ -42,7 +43,7 @@ vim .bashrc
 export PATH=$PATH:<path>/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu/bin/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<path>/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu/lib/
 ```
-***path** : arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu.tar.xz 解压路径
+**path** : arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu.tar.xz 解压路径
 
 
 # sunxi-fel 工具安装：
@@ -54,11 +55,13 @@ make
 cd ~
 vim .bashrc
 ```
+
 在结尾添加
 
 ```
 export PATH=$PATH:<path>/sunxi-tools/
 ```
+**path** : sunxi-tools.tar 解压路径
 
 # 编译 Arm Trusted Firmware (arm64)
 
@@ -67,3 +70,14 @@ tar -xvf arm-trusted-firmware.tar
 cd arm-trusted-firmware
 make CROSS_COMPILE=aarch64-none-linux-gnu-  DEBUG=1 bl31
 ```
+
+# 编译 u-boot
+
+```
+tar -xvf u-boot.tar
+cd u-boot
+make CROSS_COMPILE=aarch64-none-linux-gnu- BL31=bl31.bin h616_defconfig
+make CROSS_COMPILE=aarch64-none-linux-gnu- BL31=bl31.bin -j12
+```
+
+
