@@ -56,7 +56,7 @@ cd ~
 vim .bashrc
 ```
 
-在结尾添加
+- 在结尾添加
 
 ```
 export PATH=$PATH:<path>/sunxi-tools/
