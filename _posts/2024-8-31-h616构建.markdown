@@ -80,4 +80,10 @@ make CROSS_COMPILE=aarch64-none-linux-gnu- BL31=bl31.bin h616_defconfig
 make CROSS_COMPILE=aarch64-none-linux-gnu- BL31=bl31.bin -j12
 ```
 
+# 测试u-boot
+
+```
+sudo sunxi-fel uboot u-boot-sunxi-with-spl.bin
+```
+
 
