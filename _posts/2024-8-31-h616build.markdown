@@ -76,7 +76,7 @@ make CROSS_COMPILE=aarch64-none-linux-gnu-  DEBUG=1 bl31
 ```
 tar -xvf u-boot.tar
 cd u-boot
-make CROSS_COMPILE=aarch64-none-linux-gnu- BL31=bl31.bin h616_defconfig
+make CROSS_COMPILE=aarch64-none-linux-gnu- ARCH=arm64 BL31=bl31.bin h616_defconfig
 make CROSS_COMPILE=aarch64-none-linux-gnu- BL31=bl31.bin -j12
 ```
 
