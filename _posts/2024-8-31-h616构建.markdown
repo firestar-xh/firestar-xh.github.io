@@ -10,7 +10,8 @@ tags:
     - note
     - h616
 ---
-# ubuntu20.04 构建化境安装
+# ubuntu20.04 构建环境安装
+
 ```
 sudo apt install -y ccache debian-archive-keyring debootstrap device-tree-compiler dwarves
 sudo apt install -y gcc-arm-linux-gnueabihf jq libbison-dev libc6-dev-armhf-cross
@@ -18,4 +19,34 @@ sudo apt install -y libelf-dev libfl-dev liblz4-tool libpython2.7-dev libusb-1.0
 sudo apt install -y pigz pixz pv swig pkg-config python3-distutils qemu-user-static u-boot-tools
 sudo apt install -y distcc uuid-dev lib32ncurses-dev lib32stdc++6 apt-cacher-ng
 sudo apt install -y aptly aria2 libfdt-dev libssl-dev
+```
+
+#  aarch64-none-linux-gnu-cc交叉编译工具安装：
+
+1. 解压arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu.tar
+   
+```
+tar -xJvf arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu.tar.xz
+```
+
+2. 配置环境变量
+   
+```
+cd ~
+vim .bashrc
+```
+3. 在结尾添加
+
+```
+export PATH=$PATH:***<path>***/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu/bin/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:***<path>***/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu/lib/
+```
+***path*** : arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu.tar.xz 解压路径
+
+
+# 编译安装 sunxi-fel 工具：
+
+```
+cd arm-trusted-firmware
+make CROSS_COMPILE=aarch64-none-linux-gnu- DEBUG=1 bl31
 ```
