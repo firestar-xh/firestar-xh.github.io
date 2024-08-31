@@ -24,20 +24,20 @@ sudo apt install -y aptly aria2 libfdt-dev libssl-dev
 
 #  aarch64-none-linux-gnu-gcc交叉编译工具安装：
 
-1. 解压arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu.tar
+- 解压arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu.tar
    
 ```
 tar -xJvf arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu.tar.xz
 ```
 
-2. 配置环境变量
+- 配置环境变量
    
 ```
 cd ~
 vim .bashrc
 ```
 
-3. 在结尾添加
+- 在结尾添加
 
 ```
 export PATH=$PATH:<path>/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu/bin/
