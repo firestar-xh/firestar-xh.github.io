@@ -21,7 +21,7 @@ sudo apt install -y distcc uuid-dev lib32ncurses-dev lib32stdc++6 apt-cacher-ng
 sudo apt install -y aptly aria2 libfdt-dev libssl-dev
 ```
 
-#  aarch64-none-linux-gnu-cc交叉编译工具安装：
+#  aarch64-none-linux-gnu-gcc交叉编译工具安装：
 
 1. 解压arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu.tar
    
@@ -35,18 +35,35 @@ tar -xJvf arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu.tar.xz
 cd ~
 vim .bashrc
 ```
+
 3. 在结尾添加
 
 ```
-export PATH=$PATH:***<path>***/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu/bin/
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:***<path>***/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu/lib/
+export PATH=$PATH:<path>/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu/bin/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<path>/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu/lib/
 ```
-***path*** : arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu.tar.xz 解压路径
+***path** : arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu.tar.xz 解压路径
 
 
-# 编译安装 sunxi-fel 工具：
+# sunxi-fel 工具安装：
 
 ```
+tar -xvf sunxi-tools.tar
+cd sunxi-tools
+make
+cd ~
+vim .bashrc
+```
+在结尾添加
+
+```
+export PATH=$PATH:<path>/sunxi-tools/
+```
+
+# 编译 Arm Trusted Firmware (arm64)
+
+```
+tar -xvf arm-trusted-firmware.tar
 cd arm-trusted-firmware
-make CROSS_COMPILE=aarch64-none-linux-gnu- DEBUG=1 bl31
+make CROSS_COMPILE=aarch64-none-linux-gnu-  DEBUG=1 bl31
 ```
