@@ -9,6 +9,8 @@ catalog: true
 tags:
     - note
     - h616
+    - linux
+    - arm64
 ---
 # ubuntu20.04 构建环境安装
 
@@ -86,4 +88,32 @@ make CROSS_COMPILE=aarch64-none-linux-gnu- BL31=bl31.bin -j12
 sudo sunxi-fel uboot u-boot-sunxi-with-spl.bin
 ```
 
+# 编译 linux-kernel
 
+```
+make CROSS_COMPILE=aarch64-none-linux-gnu- ARCH=arm64 defconfig
+
+make menuconfig 
+
+```
+
+* 选择平台
+
+```
+-> Platform selection
+    [*] Allwinner sunxi 64-bit SoC Family #只勾选这个
+    #其他的全部取消勾选
+
+-> Boot options 
+   [ ] UEFI runtime support #取消勾选
+
+-> Device Drivers
+    -> I2C support
+        -> I2C support 
+            -> I2C Hardware Bus 
+                < > Marvell mv64xxx I2C Controller #取消勾选
+                < > Rockchip RK3xxx I2C adapter
+                < > ChromeOS EC tunnel I2C bus
+    -> SPI support
+        < > Allwinner A31 SPI controller
+```
