@@ -114,6 +114,6 @@ make menuconfig
                 < > Marvell mv64xxx I2C Controller #取消勾选
                 < > Rockchip RK3xxx I2C adapter
                 < > ChromeOS EC tunnel I2C bus
-    -> SPI support
-        < > Allwinner A31 SPI controller
+-> Kernel Features
+    [ ] NUMA Memory Allocation and Scheduler Support 
 ```
