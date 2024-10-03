@@ -67,6 +67,7 @@ vim .bashrc
 ```
 export PATH=$PATH:<path>/sunxi-tools/
 ```
+
 **path** : sunxi-tools.tar 解压路径
 
 # 编译 Arm Trusted Firmware (arm64)
