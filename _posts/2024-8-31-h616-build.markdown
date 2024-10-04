@@ -159,6 +159,33 @@ sudo umount /mnt/boot
 ```
 - uboot启动命令
 
+转换打包boot.scr文件: mkimage -C none -A arm64 -T script -d boot.cmd boot.scr
+mkimage 是一个用于创建 U-Boot 镜像的工具。在这个命令中，具体参数的含义如下：
+
+mkimage：这是创建 U-Boot 镜像的命令。
+
+- -C none：指定压缩类型为 none，表示不对镜像进行压缩。
+
+- -A arm64：指定架构为 arm64，即目标架构是 64 位 ARM。
+
+- -T script：指定镜像的类型为 script，表示这是一个脚本文件。
+
+- -d boot.cmd：指定输入文件为 boot.cmd，这是你想要转换的脚本文件。
+
+- boot.scr：这是输出文件名，生成的 U-Boot 脚本镜像将保存为 boot.scr。
+
+booti 讲解：
+> 在u-boot中, bootm是一个可以执行位于memory中的应用程序的命令
+booti是bootm命令的一个子集, 可用于执行位于memory中的ARM64 kernel Image,其格式如下: 
+
+> booti addr [initrd[:size]] [fdt]
+
+> 其中: addr是kernel Image文件所在的memory地址;
+
+> [initrd[:size]]是initrd在memory中的位置和size, 可以不指定, 使用“-”代替即可;
+
+> fdt是flat device tree(就是传说中的dtb文件)在memory中的地址, 在ARM64中, 它是必选的
+
 ```
 vim boot.cmd
 # 复制以下内容
