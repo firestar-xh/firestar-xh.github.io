@@ -159,10 +159,28 @@ sudo umount /mnt/boot
 ```
 - uboot启动命令
 
-转换打包boot.scr文件: mkimage -C none -A arm64 -T script -d boot.cmd boot.scr
-mkimage 是一个用于创建 U-Boot 镜像的工具。在这个命令中，具体参数的含义如下：
+```
+vim boot.cmd
+# 复制以下内容
+# 在进入 uboot 后检查文件是否存在
+ext4ls mmc 0:2
 
-mkimage：这是创建 U-Boot 镜像的命令。
+# 设置启动命令
+setenv bootcmd 'fatload mmc 0:1 0x40200000 Image;fatload mmc 0:1 0x4fa00000 sun50i-h616-fire-start.dtb;booti 0x40200000 - 0x4fa00000'
+
+# 设置 bootargs 变量
+setenv bootargs 'console=ttyS0,115200 root=/dev/mmcblk0p2 rootfstype=ext4 rootwait rw  init=/sbin/init debug panic=30'
+
+# 启动内核以及根文件系统
+boot
+
+```
+
+## 转换打包boot.scr文件: 
+
+> mkimage -C none -A arm64 -T script -d boot.cmd boot.scr
+
+mkimage 是一个用于创建 U-Boot 镜像的工具。在这个命令中，具体参数的含义如下：
 
 - -C none：指定压缩类型为 none，表示不对镜像进行压缩。
 
@@ -185,20 +203,3 @@ booti是bootm命令的一个子集, 可用于执行位于memory中的ARM64 kerne
 > [initrd[:size]]是initrd在memory中的位置和size, 可以不指定, 使用“-”代替即可;
 
 > fdt是flat device tree(就是传说中的dtb文件)在memory中的地址, 在ARM64中, 它是必选的
-
-```
-vim boot.cmd
-# 复制以下内容
-# 在进入 uboot 后检查文件是否存在
-ext4ls mmc 0:2
-
-# 设置启动命令
-setenv bootcmd 'fatload mmc 0:1 0x40200000 Image;fatload mmc 0:1 0x4fa00000 sun50i-h616-fire-start.dtb;booti 0x40200000 - 0x4fa00000'
-
-# 设置 bootargs 变量
-setenv bootargs 'console=ttyS0,115200 root=/dev/mmcblk0p2 rootfstype=ext4 rootwait rw  init=/sbin/init debug panic=30'
-
-# 启动内核以及根文件系统
-boot
-
-```
