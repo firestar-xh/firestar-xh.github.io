@@ -123,3 +123,55 @@ make menuconfig
     [ ] NUMA Memory Allocation and Scheduler Support 
 ```
 
+# 制作启动盘
+```
+# 进入磁盘管理
+fdisk /dev/sda
+
+# 多执行几次删除所有分区
+d
+
+# 新建分区 （扇区为单位，前面空开1MB用于存放uboot，制作200MB的分区）
+n
+p
+2048
++200M
+n
+p
+w
+# 进行 FAT 格式化
+sudo mkfs.fat /dev/sda1
+sudo mkfs.ext4 /dev/sda2
+
+# 写入 uboot 到 8KB 的位置
+sudo dd if=./u-boot/u-boot-sunxi-with-spl.bin of=/dev/sda bs=8K seek=1
+
+# 挂载 FAT 文件系统
+sudo mount /dev/sda1 /mnt/boot/
+
+# 复制内核以及设备树到FAT分区
+sudo cp linux-6.1-sun50iw9/arch/arm64/boot/Image /mnt/boot/
+sudo cp linux-6.1-sun50iw9/arch/arm64/boot/dts/allwinner/sun50i-h616-fire-start.dtb /mnt/boot/
+
+# 卸载 FAT 文件系统
+sudo umount /mnt/boot
+
+```
+- uboot启动命令
+
+```
+vim boot.cmd
+# 复制以下内容
+# 在进入 uboot 后检查文件是否存在
+ext4ls mmc 0:2
+
+# 设置启动命令
+setenv bootcmd 'fatload mmc 0:1 0x40200000 Image;fatload mmc 0:1 0x4fa00000 sun50i-h616-fire-start.dtb;booti 0x40200000 - 0x4fa00000'
+
+# 设置 bootargs 变量
+setenv bootargs 'console=ttyS0,115200 root=/dev/mmcblk0p2 rootfstype=ext4 rootwait rw  init=/sbin/init debug panic=30'
+
+# 启动内核以及根文件系统
+boot
+
+```
