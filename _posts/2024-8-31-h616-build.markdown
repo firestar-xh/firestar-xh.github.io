@@ -1,0 +1,124 @@
+---
+layout:     post
+title:      "Allwinner H616 Build"
+subtitle:   "Allwinner H616, H616 Blog"
+date:       2024-8-31 12:00:00
+author:     "Xh"
+header-img: "img/default_bg.jpg"
+catalog: true
+tags:
+    - note
+    - h616
+    - linux
+    - arm64
+---
+# ubuntu20.04 构建环境安装
+
+```
+sudo apt install -y make vim
+sudo apt install -y ccache debian-archive-keyring debootstrap device-tree-compiler dwarves
+sudo apt install -y gcc-arm-linux-gnueabihf jq libbison-dev libc6-dev-armhf-cross
+sudo apt install -y libelf-dev libfl-dev liblz4-tool libpython2.7-dev libusb-1.0-0-dev
+sudo apt install -y pigz pixz pv swig pkg-config python3-distutils qemu-user-static u-boot-tools
+sudo apt install -y distcc uuid-dev lib32ncurses-dev lib32stdc++6 apt-cacher-ng
+sudo apt install -y aptly aria2 libfdt-dev libssl-dev
+```
+
+#  aarch64-none-linux-gnu-gcc交叉编译工具安装：
+
+- 解压arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu.tar
+   
+```
+tar -xJvf arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu.tar.xz
+```
+
+- 配置环境变量
+   
+```
+cd ~
+vim .bashrc
+```
+
+- 在结尾添加
+
+```
+export PATH=$PATH:<path>/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu/bin/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<path>/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu/lib/
+```
+**path** : arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu.tar.xz 解压路径
+
+- 测试
+  
+```
+aarch64-none-linux-gnu-gcc -v
+```
+# sunxi-fel 工具安装：
+
+```
+tar -xvf sunxi-tools.tar
+cd sunxi-tools
+make
+cd ~
+vim .bashrc
+```
+
+- 在结尾添加
+
+```
+export PATH=$PATH:<path>/sunxi-tools/
+```
+
+**path** : sunxi-tools.tar 解压路径
+
+# 编译 Arm Trusted Firmware (arm64)
+
+```
+tar -xvf arm-trusted-firmware.tar
+cd arm-trusted-firmware
+make CROSS_COMPILE=aarch64-none-linux-gnu-  DEBUG=1 bl31
+```
+
+# 编译 u-boot
+
+```
+tar -xvf u-boot.tar
+cd u-boot
+make CROSS_COMPILE=aarch64-none-linux-gnu- ARCH=arm64 BL31=bl31.bin h616_defconfig
+make CROSS_COMPILE=aarch64-none-linux-gnu- BL31=bl31.bin -j12
+```
+
+# 测试u-boot
+
+```
+sudo sunxi-fel uboot u-boot-sunxi-with-spl.bin
+```
+
+# 编译 linux-kernel
+
+```
+make CROSS_COMPILE=aarch64-none-linux-gnu- ARCH=arm64 defconfig
+
+make menuconfig 
+
+```
+
+* 选择平台
+
+```
+-> Platform selection
+    [*] Allwinner sunxi 64-bit SoC Family #只勾选这个
+    #其他的全部取消勾选
+
+-> Boot options 
+   [ ] UEFI runtime support #取消勾选
+
+-> Device Drivers
+    -> I2C support
+        -> I2C support 
+            -> I2C Hardware Bus 
+                < > Marvell mv64xxx I2C Controller #取消勾选
+                < > Rockchip RK3xxx I2C adapter
+                < > ChromeOS EC tunnel I2C bus
+-> Kernel Features
+    [ ] NUMA Memory Allocation and Scheduler Support 
+```
