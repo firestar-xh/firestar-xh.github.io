@@ -22,6 +22,7 @@ sudo apt install -y libelf-dev libfl-dev liblz4-tool libpython2.7-dev libusb-1.0
 sudo apt install -y pigz pixz pv swig pkg-config python3-distutils qemu-user-static u-boot-tools
 sudo apt install -y distcc uuid-dev lib32ncurses-dev lib32stdc++6 apt-cacher-ng
 sudo apt install -y aptly aria2 libfdt-dev libssl-dev
+sudo apt install -y build-essential libncurses-dev bison flex 
 ```
 
 #  aarch64-none-linux-gnu-gcc交叉编译工具安装：
